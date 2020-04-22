@@ -14,7 +14,7 @@ CREATE TABLE products(
 	product_id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
     product_name VARCHAR(250) NOT NULL,
     product_description VARCHAR(500),
-    product_price DECIMAL NOT NULL
+    product_price DECIMAL(10, 2) NOT NULL
 );
 
 /*User-Product table*/
@@ -26,4 +26,4 @@ CREATE TABLE user_product(
 
 /*Foreign keys*/
 ALTER TABLE user_product ADD CONSTRAINT FK_userproduct_user FOREIGN KEY(user_id) REFERENCES users(user_id); /*user_product w/ users*/
-ALTER TABLE user_product ADD CONSTRAINT FK_userproduct_product FOREIGN KEY(product_id) REFERENCES product(product_id); /*user-product w/ products*/
+ALTER TABLE user_product ADD CONSTRAINT FK_userproduct_product FOREIGN KEY(product_id) REFERENCES products(product_id); /*user-product w/ products*/
